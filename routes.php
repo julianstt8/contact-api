@@ -28,6 +28,9 @@ switch (true) {
         $controller->create();
         break;
 
+    /**
+     * Actualizar contacto
+     */
     case preg_match("/^contacts\/(\d+)$/", $route, $matches) &&
         $_SERVER["REQUEST_METHOD"] === "PUT":
         $controller->update($matches[1]);

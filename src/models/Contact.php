@@ -2,11 +2,16 @@
 
 class Contact
 {
-    private $conn;
+    public $conn;
 
     public function __construct($db)
     {
         $this->conn = $db;
+    }
+
+    public function getConnection()
+    {
+        return $this->conn;
     }
 
     public function getAll()
@@ -80,5 +85,12 @@ class Contact
         $stmt->execute([$nombre, $apellido, $email, $id]);
 
         return $stmt->rowCount() > 0;
+    }
+
+    public function exists($id): bool
+    {
+        $stmt = $this->getConnection()->prepare("SELECT COUNT(*) FROM contacts WHERE id = ?");
+        $stmt->execute([$id]);
+        return $stmt->fetchColumn() > 0;
     }
 }

@@ -15,7 +15,7 @@ Nota: Mandar ZIP o repositorio GIT de los archivos de ambos ejercicios con el ti
 
 La solución fue desarrollada en aproximadamente 3.5 horas, incluyendo diseño de la arquitectura en capas, creación del API REST en PHP nativo, validaciones, manejo de teléfonos múltiples por contacto y pruebas en Postman.
 
-# Características
+# CARACTERISTICAS
 
 - Listar contactos
 - Obtener un contacto por ID
@@ -26,14 +26,14 @@ La solución fue desarrollada en aproximadamente 3.5 horas, incluyendo diseño d
 - Respuestas en formato JSON
 - Rutas limpias con .htaccess
 
-# Arquitectura en capas
+# ARQUITECTURA EN CAPAS
 
 - routes.php
 - src/controllers
 - src/models
 - conexión a BD (`Database.php`)
 
-# Endpoints
+# RESPUESTA ENDPOINTS
 
 ## GET /contacts
 
