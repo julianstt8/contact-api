@@ -1,0 +1,213 @@
+{
+	"info": {
+		"_postman_id": "81c91a3a-af94-4422-824e-69d22c27a89a",
+		"name": "PRUEBAS ATL SOFTWARE",
+		"description": "### Welcome to Postman! This is your first collection. \n\nCollections are your starting point for building and testing APIs. You can use this one to:\n\n• Group related requests\n• Test your API in real-world scenarios\n• Document and share your requests\n\nUpdate the name and overview whenever you’re ready to make it yours.\n\n[Learn more about Postman Collections.](https://learning.postman.com/docs/collections/collections-overview/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "50061372",
+		"_collection_link": "https://julianstt8-8595177.postman.co/workspace/Julian-Stiven-Londo%C3%B1o-Perez's-W~7ad1d34f-355d-414a-8830-5b4ea950f73d/collection/50061372-81c91a3a-af94-4422-824e-69d22c27a89a?action=share&source=collection_link&creator=50061372"
+	},
+	"item": [
+		{
+			"name": "GetAll",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {",
+							"    pm.expect(pm.response.code).to.be.oneOf([200, 201]);",
+							"});",
+							""
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/contact-api/contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"contact-api",
+						"contacts"
+					]
+				},
+				"description": "This is a POST request, submitting data to an API via the request body. This request submits JSON data, and the data is reflected in the response.\n\nA successful POST request typically returns a `200 OK` or `201 Created` response code."
+			},
+			"response": []
+		},
+		{
+			"name": "GetById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/contact-api/contacts/20",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"contact-api",
+						"contacts",
+						"20"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddContact",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\r\n    \"nombre\": \"Carlos111\",\r\n    \"apellido\": \"Gomez\",\r\n    \"email\": \"carlos@test.com\",\r\n    \"telefonos\": [\r\n      \"3001234567\",\r\n      \"3001112233\"\r\n    ]\r\n  }",
+					"options": {
+						"raw": {
+							"language": "text"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/contact-api/contacts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"contact-api",
+						"contacts"
+					]
+				},
+				"description": "This is a GET request and it is used to \"get\" data from an endpoint. There is no request body for a GET request, but you can use query parameters to help specify the resource you want data on (e.g., in this request, we have `id=1`).\n\nA successful GET response will have a `200 OK` status, and should include some kind of response body - for example, HTML web content or JSON data."
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateContact",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"nombre\": \"Carlos\",\r\n        \"apellido\": \"Gomez\",\r\n        \"email\": \"nuevo@test.com\",\r\n        \"telefonos\": [\"3009876543\"]\r\n      }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/contact-api/contacts/21",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"contact-api",
+						"contacts",
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteContact",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/contact-api/contacts/21",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"contact-api",
+						"contacts",
+						"21"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddPhone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"telefono\": \"3009876543\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/contact-api/contacts/20/phones",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"contact-api",
+						"contacts",
+						"20",
+						"phones"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeletePhone",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/contact-api/contacts/1/phones/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"contact-api",
+						"contacts",
+						"1",
+						"phones",
+						"2"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
