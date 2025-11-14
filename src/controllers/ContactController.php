@@ -147,8 +147,6 @@ class ContactController
         }
     }
 
-
-
     /**
      * Eliminar contacto
      */

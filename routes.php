@@ -79,7 +79,7 @@ switch (true) {
      * Ejemplo en Postman:
      * POST http://localhost/contact-api/contacts/1/phones
      * Body JSON:
-     * { "numero": "3009876543" }
+     * { "telefono": "3009876543" }
      */
     case preg_match("/^contacts\/(\d+)\/phones$/", $route, $matches)
         && $_SERVER["REQUEST_METHOD"] === "POST":
